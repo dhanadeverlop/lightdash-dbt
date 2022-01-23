@@ -4,10 +4,10 @@ version: '0.1'
 profile: 'jaffle_shop'
 config-version: 2
 
-source-paths: ["models"]
+source-paths: ["model-paths"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-data-paths: ["data"]
+data-paths: ["seed-paths"]
 macro-paths: ["macros"]
 
 target-path: "target"
