@@ -6,6 +6,12 @@ with orders as (
 
 ),
 
+customers as (
+
+    select * from {{ ref('stg_customers') }}
+
+),
+
 payments as (
 
     select * from {{ ref('stg_payments') }}
@@ -36,6 +42,8 @@ final as (
         orders.customer_id,
         orders.order_date,
         orders.status,
+        customers.first_name,
+        customers.last_name,
 
         {% for payment_method in payment_methods -%}
 
@@ -50,6 +58,9 @@ final as (
 
     left join order_payments
         on orders.order_id = order_payments.order_id
+
+    left join customers
+        on orders.customer_id = customers.customer_id
 
 )
 
