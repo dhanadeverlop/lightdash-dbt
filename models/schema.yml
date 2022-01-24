@@ -47,6 +47,22 @@ models:
               to: ref('customers')
               field: customer_id
 
+      - name: first_name
+        description: Customer's first name. PII.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('customers')
+              field: first_name
+
+      - name: last_name
+        description: Customer's last name. PII.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('customers')
+              field: last_name
+
       - name: order_date
         description: Date (UTC) that the order was placed
 
